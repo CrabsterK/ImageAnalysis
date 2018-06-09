@@ -4,33 +4,20 @@ public class KeyPoint {
 	private double coordinateX;
 	private double coordinateY;
 	private int[] attributes = new int[128];
-	int id = 0;
-	private static int count;
 	private KeyPoint nearestPoint;
 
 	public KeyPoint() {
-		id=count;
-		count++;
 	}
 
-	public KeyPoint getNearestPoint(ArrayList<KeyPoint> points) {
-		double nearestDistance = 1000000000;
-		int nearestPointId = -1;
-
-		for(int i=0; i<points.size(); i++) {
-			if (nearestDistance > this.getDistance(points.get(i))) {
-				nearestPointId = points.get(i).id;
-				nearestDistance = this.getDistance(points.get(i));
+	public KeyPoint getNearestPoint(ArrayList<KeyPoint> keyPoints) {
+		double nearestDistance = Double.MAX_VALUE;
+		for (int i = 0; i < keyPoints.size(); i++) {
+			if (nearestDistance > this.getDistance(keyPoints.get(i))) {
+				nearestDistance = this.getDistance(keyPoints.get(i));
+				setNearestPoint(keyPoints.get(i));
 			}
 		}
-
-		for(int i=0; i<points.size(); i++) {
-			if(points.get(i).id==nearestPointId) {
-				setNearestPoint(points.get(i));
-				return points.get(i);
-			}
-		}
-		return null;
+		return getNearestPoint();
 	}
 
 	private double getDistance(KeyPoint kayPoint) {
