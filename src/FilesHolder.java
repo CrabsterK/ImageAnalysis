@@ -4,10 +4,10 @@ import java.io.File;
 import java.io.IOException;
 
 public class FilesHolder {
-    private String imgPath1 = "img1.png";
-    private String imgPath2 = "img1.png";
-    private String dataPath1 = "img2.png.haraff.sift";
-    private String dataPath2 = "img2.png.haraff.sift";
+    private String imgPath1 = "watch2.png";
+	private String dataPath1 = "watch2.png.haraff.sift";
+    private String imgPath2 = "cd3.png";
+    private String dataPath2 = "cd3.png.haraff.sift";
     private Image img1 = null;
     private Image img2 = null;
     private File data1 = null;

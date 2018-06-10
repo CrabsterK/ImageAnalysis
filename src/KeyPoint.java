@@ -21,7 +21,12 @@ public class KeyPoint {
 	}
 
 	private double getDistance(KeyPoint kayPoint) {
-		return Math.hypot(this.coordinateX - kayPoint.coordinateX, this.coordinateY - kayPoint.coordinateY);
+		//return Math.hypot(this.coordinateX - kayPoint.coordinateX, this.coordinateY - kayPoint.coordinateY);
+		double sum = 0;
+		for (int i = 0; i < attributes.length; i++){
+			sum += Math.pow(attributes[i] - kayPoint.getAttributes()[i], 2);
+		}
+		return sum;
 	}
 
 	public KeyPoint getNearestPoint() {
@@ -50,5 +55,9 @@ public class KeyPoint {
 
 	public void setAttributes(int[] attributes) {
 		this.attributes = attributes;
+	}
+
+	public int[] getAttributes() {
+		return attributes;
 	}
 }
