@@ -21,7 +21,6 @@ public class KeyPoint {
 	}
 
 	private double getDistance(KeyPoint kayPoint) {
-		//return Math.hypot(this.coordinateX - kayPoint.coordinateX, this.coordinateY - kayPoint.coordinateY);
 		double sum = 0;
 		for (int i = 0; i < attributes.length; i++){
 			sum += Math.pow(attributes[i] - kayPoint.getAttributes()[i], 2);
